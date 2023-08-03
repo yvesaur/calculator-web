@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Lato&family=Libre+Franklin&family=Ubuntu&display=swap');
+
+:root {
+
+    --font-color: #f2f2f2;
+    --color1: #bf5056;
+    --color2: #59253E;
+    --color3: #111626;
+    --color4: #F2B199;
+    --color5: #D97777;
+
+}
+
+
+html {
+    font-family: 'Ubuntu', Courier, monospace;
+    color: var(--color3);
+    margin: 0;
+}
+
+body {
+    background-color: var(--color1);
+}
+
+body h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+body h1 img {
+    height: 40px;
+    width: auto;
+}
+
