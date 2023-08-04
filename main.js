@@ -1,0 +1,1 @@
+displayScreen = document.getElementById("screen")
