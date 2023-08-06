@@ -83,7 +83,7 @@ calculatorButtons[18].addEventListener('click', () =>{
     } 
     else if (operator === '/'){
         if (num2 == 0){
-            result = '∞';
+            result = 'sike';
             console.log(`${result} = ${num1} / ${num2}`);
             isCalculated = true;
         } else {
