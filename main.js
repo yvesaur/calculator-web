@@ -1,19 +1,22 @@
 const displayScreen = document.getElementById("screen");
 const calculatorButtons = document.querySelectorAll(".btn-container button");
-let num1 = ''
-let operators = ['+','/','-','*']
-let operator
-let num2 = ''
-let result
+let num1 = '';
+let operators = ['+','/','-','*'];
+let operator;
+let num2 = '';
+let result;
+let isCalculated = false;
 
 // Input buttons
 calculatorButtons.forEach(button => {
     
     button.addEventListener('click', () => {
         if(!(operators.includes(button.value))){
-            if(result == num1){
+            if(isCalculated === true){
                 displayScreen.value = '' + button.value;
-                result = 0;
+                result = '';
+                // operator = '';
+                isCalculated = false
             } else {
                 displayScreen.value =  displayScreen.value + button.value;
             }
@@ -25,10 +28,12 @@ calculatorButtons.forEach(button => {
 
 // Reset Button
 calculatorButtons[3].addEventListener('click', () =>{
-    num1 = ''
-    num2 = ''
-    result
+    num1 = '';
+    num2 = '';
+    result = '';
     displayScreen.value = '';
+    isCalculated = false;
+    operator = '';
 })
 
 // Addition Button
@@ -54,31 +59,48 @@ calculatorButtons[7].addEventListener('click', () =>{
 // Equals button
 calculatorButtons[18].addEventListener('click', () =>{
     num2 = parseInt(displayScreen.value);
+
     if(operator === '+'){
-        console.log(`result = ${num1} + ${num2}`);
         result = num1 + num2;
+        console.log(`result = ${num2} - ${num1}`);
+        isCalculated = true;
     } 
     else if (operator === '-'){
-        console.log(`result = ${num1} - ${num2}`);
-        result = num1 - num2;
+        if (num1 == 0) {
+            result = num2 - num1;
+            console.log(`result = ${num2} - ${num1}`);
+            isCalculated = true;
+        } else {
+            result = num1 - num2;
+            console.log(`result = ${num2} - ${num1}`);
+            isCalculated = true;
+        }
     } 
     else if (operator === '*') {
-        console.log(`result = ${num1} * ${num2}`);
         result = num1 * num2;
+        console.log(`${result} = ${num1} / ${num2}`);
+        isCalculated = true;
     } 
     else if (operator === '/'){
-        console.log(`result = ${num1} / ${num2}`);
-        result = num1 / num2;
+        if (num2 == 0){
+            result = '∞';
+            console.log(`${result} = ${num1} / ${num2}`);
+            isCalculated = true;
+        } else {
+            result = num1 / num2;
+            console.log(`${result} = ${num1} / ${num2}`);
+            isCalculated = true;
+        }
     }
 
-    num1 = result;
+    num1 = '';
     num2 = '';
-    // operator = '';
+    operator = '';
 
     displayScreen.value = result;
 });
 
-
+// calculates the average of two numbers.
 function operate(buttonIndex) {
     const currentValue = displayScreen.value;
 
@@ -91,29 +113,38 @@ function operate(buttonIndex) {
         operator = calculatorButtons[buttonIndex].value;
 
         if(operator === '+'){
-            console.log(`result = ${num1} + ${num2}`);
             result = num1 + num2;
+            console.log(`result = ${num2} - ${num1}`);
+            isCalculated = true;
         } 
         else if (operator === '-'){
             if (num1 == 0) {
-                console.log(`result = ${num2} - ${num1}`);
                 result = num2 - num1;
+                console.log(`result = ${num2} - ${num1}`);
+                isCalculated = true;
             } else {
                 result = num1 - num2;
+                console.log(`result = ${num2} - ${num1}`);
+                isCalculated = true;
             }
         } 
         else if (operator === '*') {
-            console.log(`result = ${num1} * ${num2}`);
             result = num1 * num2;
+            console.log(`${result} = ${num1} / ${num2}`);
+            isCalculated = true;
         } 
         else if (operator === '/'){
             if (num2 == 0){
                 result = '∞';
+                console.log(`${result} = ${num1} / ${num2}`);
+                isCalculated = true;
             } else {
-                console.log(`result = ${num1} / ${num2}`);
                 result = num1 / num2;
+                console.log(`${result} = ${num1} / ${num2}`);
+                isCalculated = true;
             }
         }
+
         num1 = result;  
         // num2 = 0;
         displayScreen.value = result;
