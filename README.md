@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator Web App</title>
 </head>
 <body>
   <h1>Calculator Web App</h1>
@@ -19,12 +18,8 @@
 
   <h2>Getting Started</h2>
   <p>The app is hosted on github pages and can be tested by clicking the link on the description</p>
-  <ol>
-    <li>Clone the repository to your local machine.</li>
-    <li>Open the index.html file in your preferred web browser.</li>
-  </ol>
 
-  <h2>Limitation:</h2>
+  <h2>Limitation</h2>
   <p>The app is only simple as per requirements for The Odin Project</p>
   <ol>
     <li>The calculator can't process parenthesis</li>
